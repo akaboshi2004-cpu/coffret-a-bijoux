@@ -20,11 +20,16 @@ export default async function CastPage({params}:any){
  return (
   <main className='min-h-screen bg-neutral-950 text-neutral-100 px-6 py-10'>
    <div className='max-w-5xl mx-auto'>
-    <Link href='/' className='text-sm text-neutral-400'>← Homeへ戻る</Link>
+    <a href="/#staff" className='text-sm text-neutral-400'>← 店員一覧へ戻る</a>
 
     <div className='grid md:grid-cols-2 gap-8 mt-6'>
-      <div className='h-[520px] rounded-3xl border border-neutral-800 bg-neutral-900 flex items-center justify-center text-neutral-500'>
-        キャスト画像追加場所
+      <div className='h-[520px] rounded-3xl border border-neutral-800 bg-neutral-900 overflow-hidden'>
+        {/* 画像サイズ➤500×520 */}
+        {slug === 'zoisite' ? (
+          <img src='/kameprofile.jpg' alt='キャスト画像' className='w-full h-full object-cover' />
+        ) : (
+          <div className='w-full h-full flex items-center justify-center text-neutral-500'>キャスト画像追加場所</div>
+        )}
       </div>
 
       <div>

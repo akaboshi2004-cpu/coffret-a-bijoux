@@ -25,11 +25,12 @@ export default function Page(){
     </div>
    </nav>
   </header>
-
+{/* お店タイトル掲載 */}
   <section id="home" className="max-w-6xl mx-auto px-6 pt-8 pb-20">
    <div className="rounded-3xl overflow-hidden border border-neutral-800">
     <div className="h-56 md:h-80 bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 flex items-center justify-center text-neutral-400">
-      <img src="/1500x500.jpg" alt="ヘッダー" className="w-full h-full object-cover" /></div>
+      <img src="/1500x500.jpg" alt="ヘッダー" className="w-full h-full object-cover" />
+    </div>
    </div>
    <div className="relative mt-10 text-center">
     <div className="mx-auto w-28 h-28 rounded-3xl border border-neutral-700 flex items-center justify-center text-neutral-400">LOGO</div>
@@ -37,7 +38,7 @@ export default function Page(){
     <p className="mt-6 max-w-2xl mx-auto text-neutral-300">木漏れ日の差す静かな宝石商。八つの輝きは今宵、メスラの姿を得て舞台へ現れる。</p>
    </div>
   </section>
-
+{/* 店員プロフィール掲載 */}
   <section id="staff" className="max-w-6xl mx-auto px-6 py-16">
    <h2 className="text-3xl mb-8">店員 / Jewels</h2>
    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -45,12 +46,13 @@ export default function Page(){
       <Link key={slug} href={`/cast/${slug}`} className="rounded-3xl border border-neutral-800 bg-neutral-900/60 p-5 block hover:-translate-y-1 transition">
         <div className="h-40 rounded-2xl bg-gradient-to-br from-neutral-700 to-neutral-900 mb-4 flex items-center justify-center text-sm text-neutral-400">画像追加場所</div>
         <h3 className="text-xl">{name}</h3>
+        <div className={`mt-2 h-1 rounded-full ${slug==='larimar'?'bg-sky-300':slug==='ametrine'?'bg-yellow-300':slug==='zoisite'?'bg-green-500':slug==='starspinel'?'bg-pink-300':slug==='prehnite'?'bg-lime-300':slug==='ruby'?'bg-red-500':slug==='sapphire'?'bg-blue-500':'bg-amber-400'}`}></div>
         <p className="text-sm text-neutral-400 mt-2">紹介ページへ</p>
       </Link>
     ))}
    </div>
   </section>
-
+{/* お店 / 営業日についての案内 */}
   <section id="shop" className="max-w-6xl mx-auto px-6 py-16">
    <div className="rounded-3xl border border-neutral-800 p-8 bg-neutral-900/60">
     <h2 className="text-3xl mb-4">お店 / 営業日</h2>
@@ -91,7 +93,7 @@ export default async function CastPage({params}:any){
  return (
  <main className='min-h-screen bg-neutral-950 text-neutral-100 px-6 py-10'>
   <div className='max-w-5xl mx-auto'>
-   <Link href='/' className='text-sm text-neutral-400'>← Homeへ戻る</Link>
+   <Link href='/#staff' className='text-sm text-neutral-400'>← 店員ページへ戻る</Link>
    <div className='grid md:grid-cols-2 gap-8 mt-6'>
     <div className='h-[520px] rounded-3xl border border-neutral-800 bg-neutral-900 flex items-center justify-center text-neutral-500'>キャスト画像追加場所</div>
     <div>
