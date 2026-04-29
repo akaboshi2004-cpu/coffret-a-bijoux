@@ -20,7 +20,7 @@ export default async function CastPage({params}:any){
  return (
   <main className='min-h-screen bg-neutral-950 text-neutral-100 px-6 py-10'>
    <div className='max-w-5xl mx-auto'>
-    <a href="/#staff" className='text-sm text-neutral-400'>← キャスト一覧へ戻る</a>
+    <a href="/#staff" className='text-sm text-neutral-400'>← 店員一覧へ戻る</a>
 
     <div className='grid md:grid-cols-2 gap-8 mt-6'>
       <div className='h-[520px] rounded-3xl border border-neutral-800 bg-neutral-900 overflow-hidden'>
@@ -39,8 +39,8 @@ export default async function CastPage({params}:any){
         <p className='mt-6 leading-8 text-neutral-300'>{c.gem}</p>
 
         <div className='mt-8 rounded-3xl border border-neutral-800 bg-neutral-900/60 p-6 leading-8 text-neutral-300'>
-          宝石たちそれぞれの自己紹介を入れる<br/>
-          例）今宵は私の輝きを、どうぞ近くでご覧ください。<br/>
+          初めまして、ようこそお越しくださいました。<br/>
+          今宵は私の輝きを、どうぞ近くでご覧ください。<br/>
           宝石に秘められた物語も、お聞かせいたします。<br/>
           あなたの記憶に残る一夜となりますように。
         </div>
