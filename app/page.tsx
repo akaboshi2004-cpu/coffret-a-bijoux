@@ -22,7 +22,8 @@ export default function Page(){
  const [gemColor,setGemColor]=useState('')
  const [mouse,setMouse]=useState({x:50,y:50})
  useEffect(()=>{
-  const navType=performance.getEntriesByType('navigation')[0]?. type
+  const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined
+  const navType = nav?.type
   const visited=sessionStorage.getItem('coffret_visited')
   // 初回訪問またはページ更新(F5/Ctrl+F5)の場合のみローディング表示
   if(!visited || navType==='reload'){
@@ -38,15 +39,22 @@ export default function Page(){
   }
    const move=(e:MouseEvent)=>setMouse({x:(e.clientX/window.innerWidth)*100,y:(e.clientY/window.innerHeight)*100})
   window.addEventListener('mousemove',move)
-  window.addEventListener('mousemove',(e:MouseEvent)=>{
+  const sparkle=(e:MouseEvent)=>{
    const id=Date.now()+Math.random()
    setTrail(prev=>[...prev,{x:e.clientX,y:e.clientY,id}].slice(-18))
    setTimeout(()=>setTrail(prev=>prev.filter(t=>t.id!==id)),2000)
-  })
-  return ()=>window.removeEventListener('mousemove',move)
+  }
+  window.addEventListener('mousemove',sparkle)
+  // trail effect
+  /*
+   */
+  return ()=>{
+   window.removeEventListener('mousemove',move)
+   window.removeEventListener('mousemove',sparkle)
+  }
  },[])
  const gems=[['larimar','ラリマー'],['ametrine','アメトリン'],['zoisite','ゾイサイト'],['starspinel','スタースピネル'],['prehnite','プレナイト'],['ruby','ルビー'],['sapphire','サファイア'],['topaz','インペリアルトパーズ']]
-  const helpa=[['help1','使用人']]
+  const helpa=[['helpa','使用人']]
 
  if(loading){
   return (
@@ -73,7 +81,7 @@ export default function Page(){
     </div>
     <div className="flex gap-4 text-sm flex-wrap justify-end">
       <a href="#home" className="hover:text-amber-300 hover:drop-shadow-[0_0_8px_rgba(251,191,36,.8)] transition">Home</a>
-      <a href="#staff" className="hover:text-amber-300 hover:drop-shadow-[0_0_8px_rgba(251,191,36,.8)] transition">Cast</a>
+      <a href="#servant" className="hover:text-amber-300 hover:drop-shadow-[0_0_8px_rgba(251,191,36,.8)] transition">Cast</a>
       <a href="#shop" className="hover:text-amber-300 hover:drop-shadow-[0_0_8px_rgba(251,191,36,.8)] transition">お店/営業日</a>
       <a href="#gallery" className="hover:text-amber-300 hover:drop-shadow-[0_0_8px_rgba(251,191,36,.8)] transition">Gallery</a>
       <a href="https://x.com/coffret_ff14/media" target="_blank" rel="noopener noreferrer">X</a>
